@@ -22,7 +22,7 @@ class StartUpViewModel extends BaseViewModel {
     if (wallets.isEmpty) {
       await _navigationService.replaceWith(Routes.newWalletView);
     } else {
-      _walletService.registerWalletWithService(wallets[0]);
+      _walletService.setActiveWallet(wallets[0]);
       await _navigationService.replaceWith(Routes.homeView);
     }
     notifyListeners();

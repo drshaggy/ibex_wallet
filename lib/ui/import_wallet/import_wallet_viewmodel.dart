@@ -33,8 +33,7 @@ class ImportWalletViewModel extends BaseViewModel {
         privateKey: privateKey,
         publicKey: publicKey,
       );
-      _walletService.registerWalletWithService(wallet);
-      _walletService.registerWalletInDatabase(wallet);
+      _walletService.registerNewWallet(wallet);
     } else {
       log.d('Invalid Wallet');
     }
