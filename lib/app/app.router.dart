@@ -6,6 +6,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
+import 'package:ibex_wallet/ui/generate_new_wallet/generate_new_wallet_view.dart'
+    as _i8;
 import 'package:ibex_wallet/ui/home/home_view.dart' as _i3;
 import 'package:ibex_wallet/ui/import_wallet/import_wallet_view.dart' as _i5;
 import 'package:ibex_wallet/ui/new_wallet/new_wallet_view.dart' as _i4;
@@ -14,7 +16,7 @@ import 'package:ibex_wallet/ui/settings/settings_wallet/settings_wallet_view.dar
     as _i7;
 import 'package:ibex_wallet/ui/startup/startup_view.dart' as _i2;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i8;
+import 'package:stacked_services/stacked_services.dart' as _i9;
 
 class Routes {
   static const startUpView = '/';
@@ -29,6 +31,8 @@ class Routes {
 
   static const settingsWalletView = '/settings-wallet-view';
 
+  static const generateNewWalletView = '/generate-new-wallet-view';
+
   static const all = <String>{
     startUpView,
     homeView,
@@ -36,6 +40,7 @@ class Routes {
     importWalletView,
     settingsView,
     settingsWalletView,
+    generateNewWalletView,
   };
 }
 
@@ -64,6 +69,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.settingsWalletView,
       page: _i7.SettingsWalletView,
+    ),
+    _i1.RouteDef(
+      Routes.generateNewWalletView,
+      page: _i8.GenerateNewWalletView,
     ),
   ];
 
@@ -104,6 +113,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
+    _i8.GenerateNewWalletView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const _i8.GenerateNewWalletView(),
+        settings: data,
+      );
+    },
   };
 
   @override
@@ -112,7 +127,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i8.NavigationService {
+extension NavigatorStateExtension on _i9.NavigationService {
   Future<dynamic> navigateToStartUpView([
     int? routerId,
     bool preventDuplicates = true,
@@ -191,6 +206,20 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.settingsWalletView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToGenerateNewWalletView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.generateNewWalletView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

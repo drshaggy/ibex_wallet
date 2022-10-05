@@ -1,5 +1,6 @@
 import 'package:ibex_wallet/services/wallet_service.dart';
 import 'package:ibex_wallet/services/web3_service.dart';
+import 'package:ibex_wallet/ui/generate_new_wallet/generate_new_wallet_view.dart';
 import 'package:ibex_wallet/ui/import_wallet/import_wallet_view.dart';
 import 'package:ibex_wallet/ui/new_wallet/new_wallet_view.dart';
 import 'package:ibex_wallet/ui/settings/settings_view.dart';
@@ -20,6 +21,7 @@ import '../ui/startup/startup_view.dart';
     MaterialRoute(page: ImportWalletView),
     MaterialRoute(page: SettingsView),
     MaterialRoute(page: SettingsWalletView),
+    MaterialRoute(page: GenerateNewWalletView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
