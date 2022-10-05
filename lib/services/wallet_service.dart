@@ -4,16 +4,22 @@ import '../models/wallet.dart';
 
 class WalletService {
   late UserWallet activeWallet;
-  late List<UserWallet> wallets;
+  List<UserWallet> wallets = List<UserWallet>.empty(growable: true);
 
   final _databaseService = locator<DatabaseService>();
 
   void registerNewWallet(UserWallet wallet) {
     activeWallet = wallet;
+    wallets.add(wallet);
     _databaseService.insertWallet(wallet);
   }
 
   void setActiveWallet(UserWallet wallet) {
     activeWallet = wallet;
+  }
+
+  void removeWallet(UserWallet wallet) {
+    wallets.removeWhere((element) => element.publicKey == wallet.publicKey);
+    _databaseService.deleteWallet(wallet);
   }
 }

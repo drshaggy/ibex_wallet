@@ -49,6 +49,7 @@ dependencies:
   web3dart: 
   sqflite_migration_service:
   shared_preferences:
+  oktoast:
 
 dev_dependencies:
   flutter_test:

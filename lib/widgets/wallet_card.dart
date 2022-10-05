@@ -27,16 +27,20 @@ class _WalletCardState extends State<WalletCard> {
               title: const Text('Title'),
               subtitle: Text(widget.publicKey),
               trailing: PopupMenuButton(
+                onSelected: ((value) {
+                  switch (value) {
+                    case 0:
+                      widget.onTap();
+                      break;
+                  }
+                }),
                 itemBuilder: (context) => [
                   PopupMenuItem(
+                    value: 0,
                     child: Text(widget.deleteText),
-                    onTap: () => widget.onTap(),
                   ),
                 ],
               ),
-            ),
-            const ListTile(
-              title: Text('Show Recovery Phrase'),
             ),
           ],
         ),

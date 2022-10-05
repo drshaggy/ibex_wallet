@@ -3,6 +3,7 @@ import 'package:ibex_wallet/app/logging/logger.dart';
 import 'package:ibex_wallet/services/database_service.dart';
 import 'package:ibex_wallet/services/wallet_service.dart';
 import 'package:logger/logger.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -23,6 +24,11 @@ class StartUpViewModel extends BaseViewModel {
       await _navigationService.replaceWith(Routes.newWalletView);
     } else {
       _walletService.setActiveWallet(wallets[0]);
+      _walletService.wallets = wallets;
+      showToast(
+        'Wallet Successfully Imported',
+        position: ToastPosition.bottom,
+      );
       await _navigationService.replaceWith(Routes.homeView);
     }
     notifyListeners();

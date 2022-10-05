@@ -10,5 +10,6 @@ const String newWalletImportButton = "Import Wallet";
 
 //Import Wallet View
 const String importWalletTitle = 'Import Wallet';
-const String importWalletHintText = 'Type your 12 word seed phrase here...';
+const String importWalletNameHintText = 'Wallet Name...';
+const String importWalletSeedHintText = 'Type your 12 word seed phrase here...';
 const String importWalletButtonText = 'Import Wallet';

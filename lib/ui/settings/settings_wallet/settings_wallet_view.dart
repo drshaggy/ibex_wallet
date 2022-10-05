@@ -18,13 +18,15 @@ class SettingsWalletView extends StatelessWidget {
         ),
         drawer: const MenuView(),
         body: Center(
-          child: ListView(
-            children: [
-              WalletCard(
-                publicKey: model.publicKey,
-                onTap: () => model.onTapDelete(),
-              ),
-            ],
+          child: Column(
+            children: model.wallets.map(
+              (wallet) {
+                return WalletCard(
+                  publicKey: model.publicKey,
+                  onTap: () => model.onTapDelete(),
+                );
+              },
+            ).toList(),
           ),
         ),
       ),

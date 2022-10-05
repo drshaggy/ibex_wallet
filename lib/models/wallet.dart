@@ -1,13 +1,13 @@
 import 'package:web3dart/web3dart.dart';
 
 class UserWallet {
-  final int id;
+  final String name;
   final String mnemonic;
   final String privateKey;
   final EthereumAddress publicKey;
 
   const UserWallet({
-    required this.id,
+    required this.name,
     required this.mnemonic,
     required this.privateKey,
     required this.publicKey,
@@ -15,7 +15,7 @@ class UserWallet {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'name': name,
       'mnemonic': mnemonic,
       'privateKey': privateKey,
       'publicKey': publicKey.toString(),
@@ -24,6 +24,6 @@ class UserWallet {
 
   @override
   String toString() {
-    return 'Wallet{id: $id, mnemonic: $mnemonic, privateKey: $privateKey, publicKey: $publicKey}';
+    return 'Wallet{name: $name, mnemonic: $mnemonic, privateKey: $privateKey, publicKey: $publicKey}';
   }
 }

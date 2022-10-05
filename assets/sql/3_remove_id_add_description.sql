@@ -1,0 +1,4 @@
+ALTER TABLE wallets ADD name TEXT;
+ALTER TABLE wallets DROP COLUMN id;
+ALTER TABLE wallets DROP COLUMN publicKey;
+ALTER TABLE wallets ADD publicKey TEXT PRIMARY KEY;

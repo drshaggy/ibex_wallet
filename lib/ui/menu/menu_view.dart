@@ -11,16 +11,17 @@ class MenuView extends StatelessWidget {
     return ViewModelBuilder<MenuViewModel>.reactive(
       builder: (context, model, child) => Drawer(
         child: ListView(
-          padding: const EdgeInsets.only(
-            top: 5,
-            bottom: 5,
-          ),
+          padding: const EdgeInsets.all(0),
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
                 color: model.color,
               ),
               child: Text(model.title),
+            ),
+            ListTile(
+              title: Text(model.homeText),
+              onTap: () => model.onTapHome(),
             ),
             ListTile(
               title: Text(model.settingsText),

@@ -17,10 +17,17 @@ class ImportWalletView extends StatelessWidget {
           child: Column(
             children: [
               TextField(
+                controller: model.nameController,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  hintText: model.hintNameText,
+                ),
+              ),
+              TextField(
                 controller: model.seedController,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: model.hintText,
+                  hintText: model.hintSeedText,
                 ),
               ),
               ElevatedButton(

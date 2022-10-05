@@ -9,9 +9,16 @@ class MenuViewModel extends BaseViewModel {
   final log = getLogger('MenuView');
   final _navigationService = locator<NavigationService>();
   String title = 'Menu';
-  var color = Colors.yellow;
+  var color = Colors.blue;
 
+  String homeText = 'Home';
   String settingsText = 'Settings';
+
+  void onTapHome() {
+    log.d('Settings pressed');
+    _navigationService.popRepeated(1);
+    _navigationService.clearStackAndShow(Routes.homeView);
+  }
 
   void onTapSettings() {
     log.d('Settings pressed');

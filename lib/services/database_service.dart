@@ -25,6 +25,7 @@ class DatabaseService {
       migrationFiles: [
         '1_create_schema.sql',
         '2_create_schema.sql',
+        '3_remove_id_add_description.sql'
       ],
       verbose: true,
     );
@@ -40,7 +41,7 @@ class DatabaseService {
   }
 
   Future<void> deleteWallet(UserWallet wallet) async {
-    int id = wallet.id;
+    String id = wallet.publicKey.toString();
     await _database.delete(
       'wallets',
       where: 'id = ?',
@@ -54,7 +55,7 @@ class DatabaseService {
     return List.generate(
       maps.length,
       (index) => UserWallet(
-        id: maps[index]['id'],
+        name: maps[index]['name'],
         mnemonic: maps[index]['mnemonic'],
         privateKey: maps[index]['privateKey'],
         publicKey: EthereumAddress.fromHex(maps[index]['publicKey']),
